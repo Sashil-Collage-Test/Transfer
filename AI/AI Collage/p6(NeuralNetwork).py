@@ -29,8 +29,9 @@ if __name__=="__main__":
     print(neural_network.synaptic_weights)
     training_inputs=np.array([[0,0,1],
                               [1,1,1],
+                              [1,0,1],
                               [0,1,1]])
-    training_outputs=np.array([[0],[1],[1],[0]])
+    training_outputs=np.array([[0,1,1,0]]).T
     neural_network.train(training_inputs,training_outputs,15000)
     print("Ending Weights After Training:")
     print(neural_network.synaptic_weights)
@@ -39,4 +40,4 @@ if __name__=="__main__":
     user_input_three=str(input("User Input Three:"))
     print("Considering New Situation:",user_input_one,user_input_two,user_input_three)
     print("New Output Data:")
-    print(neural_network.think(np.array)([user_input_one,user_input_two,user_input_three]))
+    print(neural_network.think(np.array([user_input_one,user_input_two,user_input_three])))

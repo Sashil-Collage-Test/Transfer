@@ -12,15 +12,14 @@ playtennis['Outlook'] = le.fit_transform(playtennis['Outlook'])
 playtennis['Temperature'] = le.fit_transform(playtennis['Temperature'])
 playtennis['Humidity'] = le.fit_transform(playtennis['Humidity'])
 playtennis['Wind'] = le.fit_transform(playtennis['Wind'])
-playtennis['PlayTennis'] = le.fit_transform(playtennis['PlayTennis'])
+playtennis['Play Tennis'] = le.fit_transform(playtennis['Play Tennis'])
 
-y = playtennis['PlayTennis']
-X = playtennis.drop(['PlayTennis'], axis=1)
+y = playtennis['Play Tennis']
+X = playtennis.drop(['Play Tennis'], axis=1)
 
 clf = tree.DecisionTreeClassifier(criterion='entropy')
 clf = clf.fit(X, y)
 print("Decision Tree Text Representation:\n", tree.export_text(clf, feature_names=list(X.columns)))
-
 
 plt.figure(figsize=(15, 10))  
 tree.plot_tree(
@@ -33,4 +32,3 @@ tree.plot_tree(
 )
 plt.title("Decision Tree Visualization (Matplotlib)")
 plt.show()
-plt.savefig("playtennis_decision_tree_matplotlib.png")

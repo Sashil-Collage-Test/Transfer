@@ -2,26 +2,26 @@ import numpy as np
 import pandas as pd
 from sklearn import tree 
 
-PlayTennis= pd.read_csv("PlayTennis.csv")
-print(PlayTennis,"\n\n")
+Play_Tennis= pd.read_csv("PlayTennis.csv")
+print(Play_Tennis,"\n\n")
 
 from sklearn.preprocessing import LabelEncoder
 Le= LabelEncoder()
 
-PlayTennis['Outlook']=Le.fit_transform(PlayTennis['Outlook'])
-PlayTennis['Temperature']=Le.fit_transform(PlayTennis['Temperature']) 
-PlayTennis['Humidity']=Le.fit_transform(PlayTennis['Humidity']) 
-PlayTennis['Wind']=Le.fit_transform(PlayTennis['Wind']) 
-PlayTennis['Play Tennis']=Le.fit_transform(PlayTennis['Play Tennis']) 
-print(PlayTennis,"\n\n")
+Play_Tennis['Outlook']=Le.fit_transform(Play_Tennis['Outlook'])
+Play_Tennis['Temperature']=Le.fit_transform(Play_Tennis['Temperature']) 
+Play_Tennis['Humidity']=Le.fit_transform(Play_Tennis['Humidity']) 
+Play_Tennis['Wind']=Le.fit_transform(Play_Tennis['Wind']) 
+Play_Tennis['Play Tennis']=Le.fit_transform(Play_Tennis['Play Tennis']) 
+print(Play_Tennis,"\n\n")
 
-y=PlayTennis['Play Tennis']
-X=PlayTennis.drop(['Play Tennis'], axis=1) 
+y=Play_Tennis['Play Tennis']
+X=Play_Tennis.drop(['Play Tennis'], axis=1) 
 
 clf=tree.DecisionTreeClassifier(criterion='entropy') 
-clf=clf.fit(X, y) 
-
+clf=clf.fit(X, y)
 print(tree.plot_tree(clf),"\n\n") 
+print("Decision Tree Text Representation:\n", tree.export_text(clf, feature_names=list(X.columns)))
 
 import graphviz
 dot_data=tree.export_graphviz(clf, out_file=None) 

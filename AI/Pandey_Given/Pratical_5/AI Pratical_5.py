@@ -28,7 +28,7 @@ pd.set_option('display.max_rows',1000)
 pd.set_option('display.max_columns',1000)
 pd.set_option('display.width',1000)
 
-df=pd.read_csv("C:/Shashikant (highly volatile)/CODEING/SEM_5/AI/Pratical_5/diabetes.csv")
+df=pd.read_csv("D:/sumitp/STUDENT/TYCS_10/AI/Pandey_Given/Pratical_5/diabetes.csv")
 print(df.head(),"\n")
 print(df.shape,"\n")
 print(df.describe(),"\n\n")

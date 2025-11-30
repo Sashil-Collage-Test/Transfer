@@ -6,7 +6,7 @@ train_set=["The sky is blue.","The sun is bright."]
 test_set=["The sun in the sky is bright."]
 
 vectorizer=CountVectorizer(stop_words="english")
-transformer=TdifTransformer()
+transformer=TfidfTransformer()
 
 train_vectors=vectorizer.fit_transform(train_set).toarray()
 test_vectors=vectorizer.transform(test_set).toarray()
@@ -19,4 +19,4 @@ def cosine_similarity(vec1,vec2):
 
 for train_vec in train_vectors:
     for test_vec in test_vectors:
-        print("Cosin Similarity:",cosine_similarity(trian_vec,test_vec))
+        print("Cosin Similarity:",cosine_similarity(train_vec,test_vec))
